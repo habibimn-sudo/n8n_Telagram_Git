@@ -1,26 +1,29 @@
-"""math_utils.py
+"""
+math_utils - simple mathematical utilities.
 
-Collection of math utility functions.
+This module provides basic math helper functions.
 """
 
-__all__ = ['factorial']
+__all__ = ["factorial"]
 
 
 def factorial(n: int) -> int:
-    """Return the factorial of a non-negative integer n (n!).
+    """Return the factorial of n using an iterative loop.
 
-    Examples:
-        factorial(0) == 1
-        factorial(5) == 120
+    Args:
+        n (int): Non-negative integer whose factorial to compute.
+
+    Returns:
+        int: The factorial of n.
 
     Raises:
-        TypeError: if n is not an int.
-        ValueError: if n is negative.
+        TypeError: If n is not an int.
+        ValueError: If n is negative.
     """
     if not isinstance(n, int):
         raise TypeError("n must be an int")
     if n < 0:
-        raise ValueError("n must be non-negative")
+        raise ValueError("n must be >= 0")
 
     result = 1
     for i in range(2, n + 1):
