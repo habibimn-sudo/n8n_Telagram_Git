@@ -1,51 +1,41 @@
 """
-math_utils.py
-
 Utility math functions.
-"""
 
+این فایل شامل توابع کمکی ریاضی است. تابع factorial به این فایل اضافه شده است.
+"""
 from typing import Any
+
+__all__ = ["factorial"]
 
 
 def factorial(n: int) -> int:
-    """Return the factorial of a non-negative integer n.
-
-    Parameters
-    ----------
-    n : int
-        Non-negative integer whose factorial to compute.
-
-    Returns
-    -------
-    int
-        n! (n factorial)
-
-    Raises
-    ------
-    TypeError
-        If n is not an integer.
-    ValueError
-        If n is negative.
-
-    Examples
-    --------
-    >>> factorial(0)
-    1
-    >>> factorial(5)
-    120
     """
-    if not isinstance(n, int):
-        raise TypeError("factorial() argument must be an integer")
-    if n < 0:
-        raise ValueError("factorial() not defined for negative values")
+    محاسبه فاکتوریل عدد صحیح غیرمنفی n و بازگشت مقدار آن.
 
+    پارامترها:
+        n (int): عدد صحیح غیرمنفی
+
+    بازگشت:
+        int: مقدار فاکتوریل n
+
+    خطاها:
+        TypeError: اگر n از نوع int نباشد
+        ValueError: اگر n منفی باشد
+
+    مثال:
+        >>> factorial(5)
+        120
+        >>> factorial(0)
+        1
+    """
+    # نوع ورودی را بررسی می‌کنیم
+    if not isinstance(n, int):
+        raise TypeError("n باید از نوع int باشد")
+    if n < 0:
+        raise ValueError("n باید عددی غیرمنفی باشد")
+
+    # محاسبه به صورت تکراری (برای جلوگیری از محدودیت عمق بازگشتی)
     result = 1
     for i in range(2, n + 1):
         result *= i
     return result
-
-
-# alias
-fact = factorial
-
-__all__ = ["factorial", "fact"]
