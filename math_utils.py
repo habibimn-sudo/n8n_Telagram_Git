@@ -1,18 +1,27 @@
-"""Utility math functions."""
+"""math_utils.py
+
+Collection of math utility functions.
+"""
+
+__all__ = ['factorial']
 
 
 def factorial(n: int) -> int:
-    """
-    Return the factorial of a non-negative integer n (n!).
+    """Return the factorial of a non-negative integer n (n!).
 
-    - If n is not an int, raise TypeError.
-    - If n is negative, raise ValueError.
-    - Use an iterative algorithm (no recursion) to compute the factorial and return an int.
+    Examples:
+        factorial(0) == 1
+        factorial(5) == 120
+
+    Raises:
+        TypeError: if n is not an int.
+        ValueError: if n is negative.
     """
     if not isinstance(n, int):
-        raise TypeError("n must be an integer")
+        raise TypeError("n must be an int")
     if n < 0:
-        raise ValueError("n must be a non-negative integer")
+        raise ValueError("n must be non-negative")
+
     result = 1
     for i in range(2, n + 1):
         result *= i
