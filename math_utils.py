@@ -1,20 +1,20 @@
-"""
-math_utils - simple mathematical utilities.
+"""ماژول ابزارهای ریاضی ساده.
 
-This module provides basic math helper functions.
+این ماژول توابع کمکی ریاضی را ارائه می‌دهد. در حال حاضر شامل تابع
+factorial برای محاسبه فاکتوریل اعداد صحیح غیرمنفی است.
 """
 
 __all__ = ["factorial"]
 
 
 def factorial(n: int) -> int:
-    """Return the factorial of n using an iterative loop.
+    """Return the factorial of a non-negative integer n using an iterative loop.
 
     Args:
-        n (int): Non-negative integer whose factorial to compute.
+        n: A non-negative integer.
 
     Returns:
-        int: The factorial of n.
+        The factorial n! as an int.
 
     Raises:
         TypeError: If n is not an int.
@@ -23,7 +23,7 @@ def factorial(n: int) -> int:
     if not isinstance(n, int):
         raise TypeError("n must be an int")
     if n < 0:
-        raise ValueError("n must be >= 0")
+        raise ValueError("n must be non-negative")
 
     result = 1
     for i in range(2, n + 1):
